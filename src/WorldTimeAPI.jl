@@ -12,12 +12,12 @@ function datetime(timezone::AbstractString = "Etc/UTC")
 
     body = String(response.body)
     json = JSON.parse(body)
-    if !haskey(json, "utc_datetime")
+    if !haskey(json, "datetime")
         error("Failed to get time from NTP server")
     end
 
     format = dateformat"yyyy-mm-ddTHH:MM:SS"
-    return DateTime(json["utc_datetime"][1:19], format)
+    return DateTime(json["datetime"][1:19], format)
 end
 
 end

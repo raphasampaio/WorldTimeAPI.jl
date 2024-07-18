@@ -12,7 +12,7 @@ function test_all()
         Aqua.test_all(WorldTimeAPI, ambiguities = false)
     end
 
-    d1, d2 = WorldTimeAPI.datetime(), Dates.now(::Type{UTC})
+    d1, d2 = WorldTimeAPI.datetime(), Dates.now(UTC)
 
     @test Dates.year(d1) == Dates.year(d2)
     @test Dates.month(d1) == Dates.month(d2)

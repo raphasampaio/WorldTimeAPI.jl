@@ -38,4 +38,7 @@ julia> ] add WorldTimeAPI
 ### Example
 ```julia
 using WorldTimeAPI
+
+dt = WorldTimeAPI.datetime()
+println(dt)
 ```

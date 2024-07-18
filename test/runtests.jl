@@ -32,24 +32,30 @@ function test_all()
         Aqua.test_all(WorldTimeAPI, ambiguities = false)
     end
 
-    d1 = Vector{DateTime}()
-    d2 = Vector{DateTime}()
+    wt_vector = Vector{DateTime}()
+    jl_vector = Vector{DateTime}()
 
-    for i in 1:100
+    for i in 1:10000
         if i % 2 == 0
-            push!(d1, WorldTimeAPI.datetime())
-            push!(d2, Dates.now(UTC))
+            wt = WorldTimeAPI.datetime()
+            jl = Dates.now(UTC)
+
+            push!(wt_vector, wt)
+            push!(jl_vector, jl)
         else
-            push!(d2, Dates.now(UTC))
-            push!(d1, WorldTimeAPI.datetime())
+            jl = Dates.now(UTC)
+            wt = WorldTimeAPI.datetime()
+
+            push!(wt_vector, wt)
+            push!(jl_vector, jl)
         end
     end
 
-    @test year_average(d1) ≈ year_average(d2)
-    @test month_average(d1) ≈ month_average(d2)
-    @test day_average(d1) ≈ day_average(d2)
-    @test hour_average(d1) ≈ hour_average(d2)
-    @test minute_average(d1) ≈ minute_average(d2)
+    @test year_average(wt_vector) ≈ year_average(jl_vector)
+    @test month_average(wt_vector) ≈ month_average(jl_vector)
+    @test day_average(wt_vector) ≈ day_average(jl_vector)
+    @test hour_average(wt_vector) ≈ hour_average(jl_vector)
+    @test minute_average(wt_vector) ≈ minute_average(jl_vector)
 
     return nothing
 end

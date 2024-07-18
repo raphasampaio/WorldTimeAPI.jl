@@ -24,7 +24,7 @@
 
 ## Introduction
 
-WorldTimeAPI.jl is a Julia package that provides a simple interface to the [WorldTimeAPI](http://worldtimeapi.org/) API.
+WorldTimeAPI.jl is a Julia package that provides a simple interface to the [WorldTimeAPI](http://worldtimeapi.org/).
 
 ## Getting Started
 

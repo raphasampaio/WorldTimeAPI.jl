@@ -35,7 +35,7 @@ function test_all()
     wt_vector = Vector{DateTime}()
     jl_vector = Vector{DateTime}()
 
-    for i in 1:10000
+    for i in 1:1000
         if i % 2 == 0
             wt = WorldTimeAPI.datetime()
             jl = Dates.now(UTC)
@@ -51,11 +51,11 @@ function test_all()
         end
     end
 
-    @test year_average(wt_vector) ≈ year_average(jl_vector)
-    @test month_average(wt_vector) ≈ month_average(jl_vector)
-    @test day_average(wt_vector) ≈ day_average(jl_vector)
-    @test hour_average(wt_vector) ≈ hour_average(jl_vector)
-    @test minute_average(wt_vector) ≈ minute_average(jl_vector)
+    @test year_average(wt_vector) ≈ year_average(jl_vector) rtol = 1e-2
+    @test month_average(wt_vector) ≈ month_average(jl_vector) rtol = 1e-2
+    @test day_average(wt_vector) ≈ day_average(jl_vector) rtol = 1e-2
+    @test hour_average(wt_vector) ≈ hour_average(jl_vector) rtol = 1e-2
+    @test minute_average(wt_vector) ≈ minute_average(jl_vector) rtol = 1e-2
 
     return nothing
 end

@@ -20,6 +20,8 @@ function test_all()
     @test Dates.hour(d1) == Dates.hour(d2)
     @test Dates.minute(d1) == Dates.minute(d2)
 
+    WorldTimeAPI.datetime("not existent timezone")
+
     return nothing
 end
 

@@ -7,9 +7,9 @@
     <a href="https://raphasampaio.github.io/WorldTimeAPI.jl/dev">
         <img src="https://img.shields.io/badge/docs-dev-blue.svg" alt="Dev">
     </a>
-    <a href="https://pkgs.genieframework.com?packages=WorldTimeAPI">
-        <img src="https://shields.io/endpoint?url=https://pkgs.genieframework.com/api/v1/badge/WorldTimeAPI/label:-sep:">
-    </a>
+    <a href="https://github.com/JuliaTesting/Aqua.jl">
+        <img src="https://raw.githubusercontent.com/JuliaTesting/Aqua.jl/master/badge.svg" alt="Coverage"/>
+    </a>    
     <br>
     <a href="https://juliahub.com/ui/Packages/WorldTimeAPI/sHGR0">
         <img src="https://juliahub.com/docs/WorldTimeAPI/version.svg" alt="Version"/>
@@ -20,12 +20,11 @@
     <a href="https://codecov.io/gh/raphasampaio/WorldTimeAPI.jl">
         <img src="https://codecov.io/gh/raphasampaio/WorldTimeAPI.jl/branch/main/graph/badge.svg" alt="Coverage"/>
     </a>
-    <a href="https://github.com/JuliaTesting/Aqua.jl">
-        <img src="https://raw.githubusercontent.com/JuliaTesting/Aqua.jl/master/badge.svg" alt="Coverage"/>
-    </a>
 </div>
 
 ## Introduction
+
+WorldTimeAPI.jl is a Julia package that provides a simple interface to the [WorldTimeAPI](http://worldtimeapi.org/) API.
 
 ## Getting Started
 
@@ -39,6 +38,9 @@ julia> ] add WorldTimeAPI
 ```julia
 using WorldTimeAPI
 
-dt = WorldTimeAPI.datetime()
-println(dt)
+@show dt_utc = WorldTimeAPI.datetime()
+
+@show dt_new_york = WorldTimeAPI.datetime("America/New_York")
+
+@show dt_los_angeles = WorldTimeAPI.datetime("America/Los_Angeles")
 ```

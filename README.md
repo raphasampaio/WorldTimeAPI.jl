@@ -11,8 +11,8 @@
         <img src="https://raw.githubusercontent.com/JuliaTesting/Aqua.jl/master/badge.svg" alt="Coverage"/>
     </a>    
     <br>
-    <a href="https://juliahub.com/ui/Packages/WorldTimeAPI/sHGR0">
-        <img src="https://juliahub.com/docs/WorldTimeAPI/version.svg" alt="Version"/>
+    <a href="https://juliahub.com/ui/Packages/General/WorldTimeAPI">
+        <img src="https://juliahub.com/docs/General/WorldTimeAPI/stable/version.svg" alt="Version"/>
     </a>
     <a href="https://github.com/raphasampaio/WorldTimeAPI.jl/actions/workflows/CI.yml">
         <img src="https://github.com/raphasampaio/WorldTimeAPI.jl/actions/workflows/CI.yml/badge.svg" alt="CI"/>

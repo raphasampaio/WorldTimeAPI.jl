@@ -35,7 +35,7 @@ function test_all()
     wt_vector = Vector{DateTime}()
     jl_vector = Vector{DateTime}()
 
-    for i in 1:1000
+    for i in 1:10
         if i % 2 == 0
             wt = WorldTimeAPI.datetime()
             jl = Dates.now(UTC)

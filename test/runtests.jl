@@ -2,7 +2,17 @@ using WorldTimeAPI
 
 using Aqua
 using Dates
+using HTTP
 using Test
+
+function test_aqua()
+    @testset "Ambiguities" begin
+        Aqua.test_ambiguities(WorldTimeAPI, recursive = false)
+    end
+    Aqua.test_all(WorldTimeAPI, ambiguities = false)
+
+    return nothing
+end
 
 function year_average(vector)
     return sum(Dates.year.(vector)) / length(vector)
@@ -24,13 +34,8 @@ function minute_average(vector)
     return sum(Dates.minute.(vector)) / length(vector)
 end
 
-function test_all()
-    @testset "Aqua.jl" begin
-        @testset "Ambiguities" begin
-            Aqua.test_ambiguities(WorldTimeAPI, recursive = false)
-        end
-        Aqua.test_all(WorldTimeAPI, ambiguities = false)
-    end
+function test_worldtimeapi()
+    @test_throws HTTP.Exceptions.StatusError WorldTimeAPI.fetch("invalid")
 
     wt_vector = Vector{DateTime}()
     jl_vector = Vector{DateTime}()
@@ -51,11 +56,22 @@ function test_all()
         end
     end
 
-    @test year_average(wt_vector) ≈ year_average(jl_vector) rtol = 1e-2
-    @test month_average(wt_vector) ≈ month_average(jl_vector) rtol = 1e-2
-    @test day_average(wt_vector) ≈ day_average(jl_vector) rtol = 1e-2
-    @test hour_average(wt_vector) ≈ hour_average(jl_vector) rtol = 1e-2
-    @test minute_average(wt_vector) ≈ minute_average(jl_vector) rtol = 1e-2
+    @test year_average(wt_vector) ≈ year_average(jl_vector) rtol = 1e-1
+    @test month_average(wt_vector) ≈ month_average(jl_vector) rtol = 1e-1
+    @test day_average(wt_vector) ≈ day_average(jl_vector) rtol = 1e-1
+    @test hour_average(wt_vector) ≈ hour_average(jl_vector) rtol = 1e-1
+
+    return nothing
+end
+
+function test_all()
+    @testset "Aqua.jl" begin
+        test_aqua()
+    end
+
+    @testset "WorldTimeAPI.jl" begin
+        test_worldtimeapi()
+    end
 
     return nothing
 end

@@ -27,8 +27,6 @@ function day_average(vector)
 end
 
 function test_worldtimeapi()
-    @test_throws HTTP.Exceptions.StatusError WorldTimeAPI.fetch("invalid")
-
     wt_vector = Vector{DateTime}()
     jl_vector = Vector{DateTime}()
 

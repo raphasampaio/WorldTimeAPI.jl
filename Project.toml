@@ -1,6 +1,6 @@
 name = "WorldTimeAPI"
 uuid = "f0211111-1d23-4195-bb37-87ab15ed0197"
-version = "0.1.0"
+version = "0.1.1"
 
 [deps]
 Dates = "ade2ca70-3891-5945-98fb-dc099432e06a"

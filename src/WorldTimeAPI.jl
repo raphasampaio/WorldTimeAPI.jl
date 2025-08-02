@@ -5,7 +5,7 @@ using HTTP
 using JSON
 
 function fetch(timezone::AbstractString)
-    response = HTTP.get("http://worldtimeapi.org/api/timezone/$timezone")
+    response = HTTP.get("https://worldtimeapi.org/api/timezone/$timezone")
     body = String(response.body)
     return JSON.parse(body)
 end

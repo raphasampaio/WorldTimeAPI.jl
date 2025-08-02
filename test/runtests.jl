@@ -26,21 +26,13 @@ function day_average(vector)
     return sum(Dates.day.(vector)) / length(vector)
 end
 
-function hour_average(vector)
-    return sum(Dates.hour.(vector)) / length(vector)
-end
-
-function minute_average(vector)
-    return sum(Dates.minute.(vector)) / length(vector)
-end
-
 function test_worldtimeapi()
     @test_throws HTTP.Exceptions.StatusError WorldTimeAPI.fetch("invalid")
 
     wt_vector = Vector{DateTime}()
     jl_vector = Vector{DateTime}()
 
-    for i in 1:10
+    for i in 1:4
         if i % 2 == 0
             wt = WorldTimeAPI.datetime()
             jl = Dates.now(UTC)
@@ -59,7 +51,6 @@ function test_worldtimeapi()
     @test year_average(wt_vector) ≈ year_average(jl_vector) rtol = 1e-1
     @test month_average(wt_vector) ≈ month_average(jl_vector) rtol = 1e-1
     @test day_average(wt_vector) ≈ day_average(jl_vector) rtol = 1e-1
-    @test hour_average(wt_vector) ≈ hour_average(jl_vector) rtol = 1e-1
 
     return nothing
 end

@@ -6,14 +6,14 @@
 
 ## Introduction
 
-WorldTimeAPI.jl is a lightweight Julia package that offers a convenient interface to interact with the [WorldTimeAPI](http://worldtimeapi.org/). Easily retrieve the current time and date for any specified timezone, or use UTC by default.
+WorldTimeAPI.jl is a lightweight Julia package that offers a convenient interface to interact with the [WorldTimeAPI](http://worldtimeapi.org). Easily retrieve the current time and date for any specified timezone, or use UTC by default.
 
 ## Getting Started
 
 ### Installation
 
 ```julia
-julia> ] add WorldTimeAPI
+pkg> add WorldTimeAPI
 ```
 
 ### Example

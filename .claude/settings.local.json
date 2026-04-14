@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "WebFetch(domain:timeapi.io)",
+      "WebFetch(domain:time.now)",
+      "WebFetch(domain:github.com)",
+      "Bash(curl -s \"https://timeapi.io/api/v1/time/current/zone?timezone=America/New_York\")"
+    ]
+  }
+}
